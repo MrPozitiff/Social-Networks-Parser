@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Login!</h1>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {{ form_start(loginForm) }}
+                    {{ form_widget(loginForm) }}
+
+                    <button type="submit" class="btn btn-primary">Войти <span class="fa fa-lock"></span></button>
+                    <a href="{{ path('vk_login') }}">Войти VK</a>
+                    &nbsp;
+                    <a href="{{ path('user_register') }}">Регистрация</a>
+                {{  form_end(loginForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Регистрация</h1>
+
+                {{ form_start(form)}}
+                    {{ form_row(form.email, {
+                        'label' : 'Введите Ваш e-mail'}) }}
+                {{ form_row(form.password.first, {
+                    'label' : 'Придумайте хороший пароль:)'}) }}
+                {{ form_row(form.password.second, {
+                    'label' : 'Подтвердите пароль'}) }}
+
+                    <button type="submit" class="btn btn-primary" formnovalidate>Зарегистрироваться! <i class="fa fa-unlock"></i></button>
+                    &nbsp;
+                    <a href="{{ path('secure_login') }}">Я уже зарегистрирован!</a>
+
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
